@@ -10,36 +10,36 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="595.0" prefHeight="400.0" prefWidth="595.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marbelsproject.MainController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marbelsproject.MainController">
    <children>
-      <Label fx:id="setLabel" contentDisplay="CENTER" layoutX="13.0" layoutY="208.0" prefHeight="23.0" prefWidth="376.0" text="Bitte Startposition und Geschwindigkeit eingeben" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="setLabel" contentDisplay="CENTER" layoutX="85.0" layoutY="302.0" prefHeight="23.0" prefWidth="376.0" text="Bitte Startposition und Geschwindigkeit eingeben" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="marbelsLabel" layoutX="246.0" layoutY="1.0" text="Marbels" textFill="WHITE">
+      <Label fx:id="marbelsLabel" layoutX="397.0" layoutY="20.0" text="Marbels" textFill="WHITE">
          <font>
             <Font name="Air Americana" size="34.0" />
          </font>
       </Label>
-      <HBox fx:id="canvesHBox" alignment="CENTER" layoutX="3.0" layoutY="60.0" prefHeight="278.0" prefWidth="394.0" style="-fx-border-color: white;" visible="false">
+      <HBox fx:id="canvesHBox" alignment="CENTER" layoutX="16.0" layoutY="80.0" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: white;" visible="false">
          <children>
-            <Canvas fx:id="canvas" height="317.0" width="381.0" />
+            <Canvas fx:id="canvas" height="489.0" width="538.0" />
          </children>
       </HBox>
-      <VBox layoutX="411.0" layoutY="56.0" prefHeight="328.0" prefWidth="170.0">
+      <VBox layoutX="572.0" layoutY="80.0" prefHeight="498.0" prefWidth="305.0">
          <children>
             <Label text="Startposition" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="sX" prefHeight="26.0" prefWidth="118.0" promptText="StartPos X">
+            <TextField fx:id="sX" prefHeight="32.0" prefWidth="100.0" promptText="Startposition X">
                <VBox.margin>
                   <Insets bottom="4.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="sY" prefHeight="26.0" prefWidth="118.0" promptText="StartPosY">
+            <TextField fx:id="sY" prefHeight="32.0" prefWidth="100.0" promptText="Startposition Y">
                <VBox.margin>
                   <Insets bottom="16.0" />
                </VBox.margin>
@@ -48,12 +48,12 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <TextField fx:id="gX" prefHeight="26.0" prefWidth="118.0" promptText="Geschwindigkeit X">
+            <TextField fx:id="gX" prefHeight="32.0" prefWidth="100.0" promptText="Startgeschwindigkeit X">
                <VBox.margin>
                   <Insets bottom="4.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="gY" prefHeight="26.0" prefWidth="118.0" promptText="Geschwindigkeit Y">
+            <TextField fx:id="gY" prefHeight="32.0" prefWidth="100.0" promptText="Startgeschwindigkeit Y">
                <VBox.margin>
                   <Insets bottom="16.0" />
                </VBox.margin></TextField>
@@ -62,17 +62,17 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="bX" prefHeight="26.0" prefWidth="118.0" promptText="Beschleunigung X">
+            <TextField fx:id="bX" prefHeight="32.0" prefWidth="100.0" promptText="Startbeschleunigung X">
                <VBox.margin>
                   <Insets bottom="4.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="bY" prefHeight="26.0" prefWidth="118.0" promptText="Beschleunigung Y">
+            <TextField fx:id="bY" prefHeight="32.0" prefWidth="100.0" promptText="Startbeschleunigung Y">
                <VBox.margin>
-                  <Insets bottom="16.0" />
+                  <Insets bottom="96.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="posButton" alignment="CENTER" mnemonicParsing="false" onAction="#onPosButtonClick" prefHeight="66.0" prefWidth="170.0" text="Simulation" />
+            <Button fx:id="posButton" alignment="CENTER" mnemonicParsing="false" onAction="#onPosButtonClick" prefHeight="103.0" prefWidth="306.0" text="Simulation" />
          </children>
       </VBox>
    </children>

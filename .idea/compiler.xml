@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MarbelsProject" />
+        <module name="IntelliJ Marbels" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="IntelliJ Marbels" options="--add-exports javafx.controls/com.sun.javafx.charts=com.example.marbelsproject" />
       <module name="MarbelsProject" options="--add-exports javafx.controls/com.sun.javafx.charts=com.example.marbelsproject" />
     </option>
   </component>

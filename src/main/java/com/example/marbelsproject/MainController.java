@@ -26,6 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class MainController
 {
@@ -33,12 +34,6 @@ public class MainController
     private Label setLabel;
     @FXML
     private Label marbelsLabel;
-    //@FXML
-    //private Label tableTitelLabel;
-    //@FXML
-    //private TableView<Ball> posTable;
-    @FXML
-    public TableColumn<Ball, String> xyCol;
     @FXML
     public TextField sX;
     @FXML
@@ -56,10 +51,8 @@ public class MainController
     @FXML
     public Canvas canvas;
 
-    ObservableList xyPosList = FXCollections.observableArrayList();
-
     @FXML
-    public void onPosButtonClick() {
+    public void onPosButtonClick() throws InterruptedException {
 
 
         if (!sX.getText().trim().isEmpty() && !sX.getText().trim().isEmpty() && !sX.getText().trim().isEmpty() && !sX.getText().trim().isEmpty())
@@ -79,51 +72,47 @@ public class MainController
             };
             animation.play();
 
-
-
             setLabel.setVisible(false);
             canvesHBox.setVisible(true);
 
-            String sXtest = sX.getText();
-            String sYtest = sY.getText();
-            String gXtest = gX.getText();
-            String gYtest = gY.getText();
-
-
-            //tableTitelLabel.setText("TEST");
             GraphicsContext g = canvas.getGraphicsContext2D();
             g.setFill(Color.WHITE);
 
-            double[] s = new double[] {Double.parseDouble(sX.getText()), Double.parseDouble(sY.getText()) };
-            //double[] v = new double[]{20, 10};
-            double[] v = new double[] {Double.parseDouble(gX.getText()), Double.parseDouble(gY.getText()) };
             //double[] s = new double[]{0, 0};
+            //double[] v = new double[]{20, 10};
             //double[] a = new double[]{0 + 3, 9.81 + 3};
+
+            double[] s = new double[] {Double.parseDouble(sX.getText()), Double.parseDouble(sY.getText()) };
+            double[] v = new double[] {Double.parseDouble(gX.getText()), Double.parseDouble(gY.getText()) };
             double[] a = new double[] {Double.parseDouble(bX.getText()), 9.81 + Double.parseDouble(bY.getText()) };
             Ball ball = new Ball(a, v, s);
 
-            for (int i = 0; i <= 29; i++) {
+            int runtime = 0;
+
+            while (runtime < 30) {
                 ball.nextFrame();
                 s = ball.getS();
                 double xPos = s[0];
                 double yPos = s[1];
-                String xyString = Arrays.toString(ball.getS());
                 g.fillOval(xPos * 10, yPos * 10, 5, 5);
-                System.out.println("V: " + Arrays.toString(ball.getV()) +
+                /*System.out.println("V: " + Arrays.toString(ball.getV()) +
                         ", S: " + Arrays.toString(ball.getS()) +
-                        ", A: " + Arrays.toString(ball.getA()));
-
-                xyPosList.add(xyString);
-                System.out.println("TEST" + sXtest + sYtest + gXtest + gYtest);
-                System.out.println("TEST2" + v + s + a);
-
+                        ", A: " + Arrays.toString(ball.getA()));*/
+                //wait(1000);
+                runtime++;
             }
-            System.out.println(xyPosList + "TEST2");
         }
         else
             setLabel.setTextAlignment(TextAlignment.CENTER);
             setLabel.setText("Fehlende Eingabe!");
             setLabel.setTextFill(Color.RED);
     }
-
+    public static void wait(int ms){
+        try{
+            Thread.sleep(ms);
+        }
+        catch (InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
+    }
 }
