@@ -1,5 +1,6 @@
 package com.example.marbelsproject;
 
+import com.sun.javafx.charts.Legend;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.Transition;
@@ -26,15 +27,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController
+{
     @FXML
     private Label setLabel;
     @FXML
     private Label marbelsLabel;
-    @FXML
-    private Label tableTitelLabel;
-    @FXML
-    private TableView<Ball> posTable;
+    //@FXML
+    //private Label tableTitelLabel;
+    //@FXML
+    //private TableView<Ball> posTable;
     @FXML
     public TableColumn<Ball, String> xyCol;
     @FXML
@@ -45,6 +47,10 @@ public class MainController implements Initializable {
     public TextField gX;
     @FXML
     public TextField gY;
+    @FXML
+    public TextField bX;
+    @FXML
+    public TextField bY;
     @FXML
     public HBox canvesHBox;
     @FXML
@@ -84,15 +90,16 @@ public class MainController implements Initializable {
             String gYtest = gY.getText();
 
 
-            tableTitelLabel.setText("TEST");
+            //tableTitelLabel.setText("TEST");
             GraphicsContext g = canvas.getGraphicsContext2D();
             g.setFill(Color.WHITE);
 
-            //double[] v = new double[] {Double.parseDouble(sX.getText()), Double.parseDouble(sY.getText()) };
-            double[] v = new double[]{20, 10};
-            //double[] s = new double[] {Double.parseDouble(gX.getText()), Double.parseDouble(gY.getText()) };
-            double[] s = new double[]{0, 0};
-            double[] a = new double[]{0, 9.81};
+            double[] s = new double[] {Double.parseDouble(sX.getText()), Double.parseDouble(sY.getText()) };
+            //double[] v = new double[]{20, 10};
+            double[] v = new double[] {Double.parseDouble(gX.getText()), Double.parseDouble(gY.getText()) };
+            //double[] s = new double[]{0, 0};
+            //double[] a = new double[]{0 + 3, 9.81 + 3};
+            double[] a = new double[] {Double.parseDouble(bX.getText()), 9.81 + Double.parseDouble(bY.getText()) };
             Ball ball = new Ball(a, v, s);
 
             for (int i = 0; i <= 29; i++) {
@@ -117,16 +124,6 @@ public class MainController implements Initializable {
             setLabel.setTextAlignment(TextAlignment.CENTER);
             setLabel.setText("Fehlende Eingabe!");
             setLabel.setTextFill(Color.RED);
-
-
-    }
-
-
-    @FXML
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        //xyCol.setCellValueFactory(new PropertyValueFactory<Ball, String>("s"));
-
-        posTable.setItems(xyPosList);
     }
 
 }
