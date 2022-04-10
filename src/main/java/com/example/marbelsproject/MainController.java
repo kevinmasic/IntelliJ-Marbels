@@ -1,39 +1,33 @@
 package com.example.marbelsproject;
 
-import com.sun.javafx.charts.Legend;
+
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.Transition;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
-
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
+
 
 public class MainController
 {
+    //Erstellung der FXML Elemente
     @FXML
     private Label setLabel;
     @FXML
     private Label marbelsLabel;
+
+    //Textfelder zur eingabe der Werte, um die Simulation zu berechnen
     @FXML
     public TextField sX;
     @FXML
@@ -46,18 +40,24 @@ public class MainController
     public TextField bX;
     @FXML
     public TextField bY;
+
+    //Erstellung eine Canvas zu Darstellung der Flugbahn
     @FXML
     public HBox canvesHBox;
     @FXML
     public Canvas canvas;
 
+
+    //OnClick Event zur Berechnung der Werte und grafischen Darstellung der Flugbahn
     @FXML
-    public void onPosButtonClick() throws InterruptedException {
+    public void onPosButtonClick() {
 
-
-        if (!sX.getText().trim().isEmpty() && !sX.getText().trim().isEmpty() && !sX.getText().trim().isEmpty() && !sX.getText().trim().isEmpty())
+    //OnClick Event wird nur ausgeführt, wenn alle Textfelder in der GUI ausgefüllt wurden
+        if (!sX.getText().trim().isEmpty() && !sY.getText().trim().isEmpty() &&
+                !gX.getText().trim().isEmpty() && !gY.getText().trim().isEmpty() &&
+                !bX.getText().trim().isEmpty() && !bY.getText().trim().isEmpty())
         {
-
+    //Spielerei zum Farbwechsel in der GUI(noch unvollständig)
             final Animation animation = new Transition() {
                 {
                     setCycleDuration(Duration.millis(1000));
@@ -72,47 +72,40 @@ public class MainController
             };
             animation.play();
 
+
+    //Meldung für den Nutzer werden ausgebledndet und das Canvas wird sichtbar
             setLabel.setVisible(false);
             canvesHBox.setVisible(true);
 
             GraphicsContext g = canvas.getGraphicsContext2D();
             g.setFill(Color.WHITE);
 
-            //double[] s = new double[]{0, 0};
-            //double[] v = new double[]{20, 10};
-            //double[] a = new double[]{0 + 3, 9.81 + 3};
-
+    //Positions-, Gechwindigkeits- und Beschleunigungswerte, welche aus der Eingabe des Benutzers in der GUI aufgenommen werden
             double[] s = new double[] {Double.parseDouble(sX.getText()), Double.parseDouble(sY.getText()) };
             double[] v = new double[] {Double.parseDouble(gX.getText()), Double.parseDouble(gY.getText()) };
             double[] a = new double[] {Double.parseDouble(bX.getText()), 9.81 + Double.parseDouble(bY.getText()) };
             Ball ball = new Ball(a, v, s);
 
+    //Festlegung von dt
             int runtime = 0;
-
+    //Berechnung der Werte und Daratellung der Positionen für jeden festgelegten Frame
+    //Ausgabe der Werte in der Konsole
             while (runtime < 30) {
                 ball.nextFrame();
                 s = ball.getS();
                 double xPos = s[0];
                 double yPos = s[1];
                 g.fillOval(xPos * 10, yPos * 10, 5, 5);
-                /*System.out.println("V: " + Arrays.toString(ball.getV()) +
+                System.out.println("V: " + Arrays.toString(ball.getV()) +
                         ", S: " + Arrays.toString(ball.getS()) +
-                        ", A: " + Arrays.toString(ball.getA()));*/
-                //wait(1000);
+                        ", A: " + Arrays.toString(ball.getA()));
                 runtime++;
             }
         }
+    //Fehlermeldung bei nicht-Erfüllung der if Bedingung
         else
             setLabel.setTextAlignment(TextAlignment.CENTER);
             setLabel.setText("Fehlende Eingabe!");
             setLabel.setTextFill(Color.RED);
-    }
-    public static void wait(int ms){
-        try{
-            Thread.sleep(ms);
-        }
-        catch (InterruptedException ex){
-            Thread.currentThread().interrupt();
-        }
     }
 }

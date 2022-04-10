@@ -10,8 +10,7 @@ class Ball extends Main {
     public double[] s;
     public float dt = 1/30f;
 
-    private ObservableList<Ball> posList;
-
+    //Getter und Setter der Variablen
     public double[] getA() {
         return this.a;
     }
@@ -36,12 +35,14 @@ class Ball extends Main {
         this.s = s;
     }
 
+
+    //Konstruktor
     public Ball(double[] a, double[] v, double[] s) {
         this.a = a;
         this.v = v;
         this.s = s;
     }
-
+    //Berrechnung der nächsten Position im nächsten Frame
     public void nextS() {
         double[] pos = new double[2];
         pos[0] = s[0] + v[0] * dt + 0.5 * a[0] * (dt * dt);
@@ -49,13 +50,14 @@ class Ball extends Main {
         setS(pos);
     }
 
+    //Berrechnung der nächsten Geschwindigkeit im nächsten Frame
     public void nextV() {
         double[] vel = new double[2];
         vel[0] = v[0] + a[0] * dt;
         vel[1] = v[1] + a[1] * dt;
         setV(vel);
     }
-
+    //Methode zur Berrechung der Variabelen im nächsten Frame
     public void nextFrame() {
         nextS();
         nextV();
