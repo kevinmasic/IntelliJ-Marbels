@@ -95,7 +95,9 @@ public class MainController
                 s = ball.getS();
                 double xPos = s[0];
                 double yPos = s[1];
+    //Setzen der Kugel für den jeweiligen Frame(mulipliziert mit einer Konstanten, da die grafische Darstellung sonst zu klein wäre)
                 g.fillOval(xPos * 10, yPos * 10, 5, 5);
+
                 System.out.println("V: " + Arrays.toString(ball.getV()) +
                         ", S: " + Arrays.toString(ball.getS()) +
                         ", A: " + Arrays.toString(ball.getA()));
