@@ -1,3 +1,10 @@
+/*
+Gruppe C7
+Julian Gutknecht
+Kevin Masic
+ */
+
+
 package com.example.marbelsproject;
 
 
@@ -96,7 +103,7 @@ public class MainController
                 double xPos = s[0];
                 double yPos = s[1];
     //Setzen der Kugel für den jeweiligen Frame(mulipliziert mit einer Konstanten, da die grafische Darstellung sonst zu klein wäre)
-                g.fillOval(xPos * 10, yPos * 10, 5, 5);
+                g.fillOval(xPos * 20, yPos * 20, 5, 5);
 
                 System.out.println("V: " + Arrays.toString(ball.getV()) +
                         ", S: " + Arrays.toString(ball.getS()) +

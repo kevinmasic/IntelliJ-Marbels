@@ -10,12 +10,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marbelsproject.MainController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #1c1c1c;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marbelsproject.MainController">
    <children>
-      <Label fx:id="setLabel" contentDisplay="CENTER" layoutX="85.0" layoutY="302.0" prefHeight="23.0" prefWidth="376.0" text="Bitte Startposition und Geschwindigkeit eingeben" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="setLabel" contentDisplay="CENTER" layoutX="17.0" layoutY="300.0" prefHeight="23.0" prefWidth="540.0" text="Bitte Startposition, Geschwindigkeit und Beschleunigung eingeben" textFill="WHITE" AnchorPane.leftAnchor="17.0">
          <font>
             <Font size="18.0" />
          </font>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
       </Label>
       <Label fx:id="marbelsLabel" layoutX="397.0" layoutY="20.0" text="Marbels" textFill="WHITE">
          <font>

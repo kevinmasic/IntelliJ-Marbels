@@ -1,9 +1,16 @@
+/*
+Gruppe C7
+Julian Gutknecht
+Kevin Masic
+ */
+
+
 package com.example.marbelsproject;
 
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 
-class Ball extends Main {
+class Ball  {
     //Variablen a=Beschleunigung, v=Geschwindigkeit, s=Strecke, delta t
     public double[] a;
     public double[] v;

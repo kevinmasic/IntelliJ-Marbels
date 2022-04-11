@@ -1,3 +1,10 @@
+/*
+Gruppe C7
+Julian Gutknecht
+Kevin Masic
+ */
+
+
 package com.example.marbelsproject;
 
 import javafx.application.Application;
