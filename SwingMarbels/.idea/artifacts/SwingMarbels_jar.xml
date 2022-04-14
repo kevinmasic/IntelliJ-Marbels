@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SwingMarbels:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SwingMarbels_jar</output-path>
+    <root id="archive" name="SwingMarbels.jar">
+      <element id="module-output" name="SwingMarbels" />
+    </root>
+  </artifact>
+</component>
